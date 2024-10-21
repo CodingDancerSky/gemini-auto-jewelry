@@ -22,6 +22,7 @@ jewelry_type = input('What is the type of jewelry you are looking for with this 
 import google.generativeai as genai
 import pathlib
 import os
+import time
 
 genai.configure(api_key=os.environ["API_KEY"])
 model = genai.GenerativeModel('gemini-1.5-flash')
@@ -59,7 +60,7 @@ print(f"Color of the country is: {stone_color} {stone_color_rgb} ({r},{g},{b})\n
 ### Generate image
 from vertexai.preview.vision_models import ImageGenerationModel
 
-image_prompt = f"please show a product image of {jewelry_type} jewelry build with the stone {stone_name} on a female model. Please put the them on right side of the picture."
+image_prompt = f"please show a product image of {jewelry_type} jewelry build with the stone {stone_name} on a female model with face (jewelry in center of the picture)."
 # print("Image prompt: ", image_prompt)
 
 model = ImageGenerationModel.from_pretrained("imagegeneration@006")
@@ -112,5 +113,7 @@ image_draw.text(
 	font = watermark_text_font_2,
 	fill = (200, 200, 200)
 	)
-image.save(f"{stone_name}_jewelry.png")
+timestampe = round(time.time() * 1000);
+image.save(f"{stone_name}_jewelry_{timestampe}.png")
+os.remove("./gen-img.png")
 image.show()

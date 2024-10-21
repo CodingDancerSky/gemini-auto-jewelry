@@ -60,7 +60,7 @@ print(f"Color of the stone is: {stone_color} {stone_color_rgb} ({r},{g},{b})\n")
 ### Generate image
 from vertexai.preview.vision_models import ImageGenerationModel
 
-image_prompt = f"please show a product image of {jewelry_type} jewelry build with the stone {stone_name} on a female model with face (jewelry in center of the picture)."
+image_prompt = f"please show one product image of {jewelry_type} jewelry build with the stone {stone_name} on a female model with face (jewelry in center of the picture)."
 # print("Image prompt: ", image_prompt)
 
 model = ImageGenerationModel.from_pretrained("imagegeneration@006")

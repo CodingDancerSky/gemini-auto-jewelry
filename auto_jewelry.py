@@ -55,7 +55,7 @@ stone_color_rgb_prompt = f"What is the rgb of color {stone_color} into hexadecim
 stone_color_rgb_response = model.generate_content(stone_color_rgb_prompt)
 stone_color_rgb = stone_color_rgb_response.text
 r, g, b = get_rgb_from_hexadecimal(stone_color_rgb)
-print(f"Color of the country is: {stone_color} {stone_color_rgb} ({r},{g},{b})\n")
+print(f"Color of the stone is: {stone_color} {stone_color_rgb} ({r},{g},{b})\n")
 
 ### Generate image
 from vertexai.preview.vision_models import ImageGenerationModel

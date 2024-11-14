@@ -25,5 +25,5 @@ gcloud auth application-default login
 
 ## Step 3: Run the python app
 ```bash
-python ./auto_travel_postcard.py
+python ./auto_jewelry.py
 ```
